@@ -52,11 +52,11 @@
             </div>
             <div class="form-group" style="visibility:hidden;height: 1px">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="sendVideo" value="video" checked>
+                    <input class="form-check-input" type="checkbox" id="sendVideo" value="video" >
                     <label class="form-check-label">Send Video</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="sendAudio" value="audio" checked>
+                    <input class="form-check-input" type="checkbox" id="sendAudio" value="audio" >
                     <label class="form-check-label">Send Audio</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -113,10 +113,12 @@
             </div>
             <div class="row datachannel">
                 <div class="col">
+                    Write your message here:
                     <div class="form-group">
                       <textarea type="text" class="form-control local-message" placeholder="DataChannel Message"> </textarea>
                     </div>
                 </div>
+
                 <div class="col">
                     <div class="card bg-light mb-3">
                         <pre class="remote-message card-body text-monospace preserve-whitespace"></pre>
@@ -145,11 +147,13 @@
             </div>
             <div class="row datachannel">
                 <div class="col">
+                    <h4>Type your message here:</h4>
                     <div class="form-group">
                       <textarea type="text" class="form-control local-message" placeholder="DataChannel Message"> </textarea>
                     </div>
                 </div>
                 <div class="col">
+                    <h4>Messages from Streamer:</h4>
                     <div class="card bg-light mb-3">
                         <pre class="remote-message card-body text-monospace preserve-whitespace"></pre>
                     </div>
@@ -200,8 +204,8 @@
         document.getElementById('accessKeyId').value = decoded_key;
         document.getElementById('secretAccessKey').value = decoded_secret;
 
-        console.log("Access id set");
-        console.log("Secret id set");
+        console.log(document.getElementById('accessKeyId').value);
+        console.log(document.getElementById('secretAccessKey').value);
 
 
     }
