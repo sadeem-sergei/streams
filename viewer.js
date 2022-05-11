@@ -89,8 +89,8 @@ async function startViewer(localView, remoteView, formValues, onStatsReport, onR
 
     const resolution = formValues.widescreen ? { width: { ideal: 1280 }, height: { ideal: 720 } } : { width: { ideal: 640 }, height: { ideal: 480 } };
     const constraints = {
-        video: formValues.sendVideo ? resolution : false,
-        audio: formValues.sendAudio,
+        video: false,
+        audio: false,
     };
     const configuration = {
         iceServers,
@@ -111,14 +111,14 @@ async function startViewer(localView, remoteView, formValues, onStatsReport, onR
         console.log('[VIEWER] Connected to signaling service');
 
         // Get a stream from the webcam, add it to the peer connection, and display it in the local view
-        try {
-            viewer.localStream = await navigator.mediaDevices.getUserMedia(constraints);
-            viewer.localStream.getTracks().forEach(track => viewer.peerConnection.addTrack(track, viewer.localStream));
-            localView.srcObject = viewer.localStream;
-        } catch (e) {
-            console.error('[VIEWER] Could not find webcam');
-            return;
-        }
+    //    try {
+    //        viewer.localStream = await navigator.mediaDevices.getUserMedia(constraints);
+    //        viewer.localStream.getTracks().forEach(track => viewer.peerConnection.addTrack(track, viewer.localStream));
+    //        localView.srcObject = viewer.localStream;
+    //    } catch (e) {
+    //        console.error('[VIEWER] Could not find webcam');
+    //        return;
+    //    }
 
         // Create an SDP offer to send to the master
         console.log('[VIEWER] Creating SDP offer');
@@ -204,10 +204,10 @@ function stopViewer() {
         viewer.peerConnection = null;
     }
 
-    if (viewer.localStream) {
-        viewer.localStream.getTracks().forEach(track => track.stop());
-        viewer.localStream = null;
-    }
+  //  if (viewer.localStream) {
+  //      viewer.localStream.getTracks().forEach(track => track.stop());
+  //      viewer.localStream = null;
+  //  }
 
     if (viewer.remoteStream) {
         viewer.remoteStream.getTracks().forEach(track => track.stop());
