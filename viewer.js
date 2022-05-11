@@ -110,15 +110,6 @@ async function startViewer(localView, remoteView, formValues, onStatsReport, onR
     viewer.signalingClient.on('open', async () => {
         console.log('[VIEWER] Connected to signaling service');
 
-        // Get a stream from the webcam, add it to the peer connection, and display it in the local view
-    //    try {
-    //        viewer.localStream = await navigator.mediaDevices.getUserMedia(constraints);
-    //        viewer.localStream.getTracks().forEach(track => viewer.peerConnection.addTrack(track, viewer.localStream));
-    //        localView.srcObject = viewer.localStream;
-    //    } catch (e) {
-    //        console.error('[VIEWER] Could not find webcam');
-    //        return;
-    //    }
 
         // Create an SDP offer to send to the master
         console.log('[VIEWER] Creating SDP offer');
@@ -204,10 +195,9 @@ function stopViewer() {
         viewer.peerConnection = null;
     }
 
-  //  if (viewer.localStream) {
-  //      viewer.localStream.getTracks().forEach(track => track.stop());
-  //      viewer.localStream = null;
-  //  }
+    if (viewer.localStream) {
+        viewer.localStream = null;
+    }
 
     if (viewer.remoteStream) {
         viewer.remoteStream.getTracks().forEach(track => track.stop());
