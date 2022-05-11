@@ -134,13 +134,13 @@
         <div id="viewer" class="d-none">
             <h2>Viewer</h2>
             <div class="row">
-                <div class="col" style="visibility:hidden;height: 1px">
-                    <h5>Return Channel</h5>
-                    <div class="video-container"><video class="local-view" autoplay playsinline controls muted /></div>
-                </div>
                 <div class="col">
                     <h5>From Master</h5>
                     <div class="video-container"><video class="remote-view" autoplay playsinline controls /></div>
+                </div>
+                <div class="col" style="visibility:hidden;height: 1px">
+                    <h5>Return Channel</h5>
+                    <div class="video-container"><video class="local-view" autoplay playsinline controls muted /></div>
                 </div>
             </div>
             <div class="row datachannel">
@@ -200,8 +200,8 @@
         document.getElementById('accessKeyId').value = decoded_key;
         document.getElementById('secretAccessKey').value = decoded_secret;
 
-        console.log(document.getElementById('accessKeyId').value);
-        console.log(document.getElementById('secretAccessKey').value);
+        console.log("Access id set");
+        console.log("Secret id set");
 
 
     }
