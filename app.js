@@ -148,8 +148,6 @@ $('#master .send-message').click(async () => {
 $('#viewer .send-message').click(async () => {
     const viewerLocalMessage = $('#viewer .local-message')[0];
     sendViewerMessage(viewerLocalMessage.value);
-    const remoteMessage = $('#master .remote-message')[0];
-    remoteMessage.append(`<b>viewerLocalMessage.value</b>\n`);
 });
 
 // Read/Write all of the fields to/from localStorage so that fields are not lost on refresh.
