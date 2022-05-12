@@ -204,10 +204,10 @@ function stopViewer() {
         viewer.peerConnection = null;
     }
 
-    //if (viewer.localStream) {
-    //    viewer.localStream.getTracks().forEach(track => track.stop());
-    //    viewer.localStream = null;
-    //}
+    if (viewer.localStream) {
+        viewer.localStream.getTracks().forEach(track => track.stop());
+        viewer.localStream = null;
+    }
 
     if (viewer.remoteStream) {
         viewer.remoteStream.getTracks().forEach(track => track.stop());
