@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,11 +29,11 @@
                 <label>Endpoint <small>(optional)</small></label>
                 <input type="text" class="form-control" id="endpoint" placeholder="Endpoint">
             </div>
-            <div class="form-group" >
+            <div class="form-group" style="visibility:hidden;height: 1px">
                 <label>Access Key ID</label>
                 <input type="text" class="form-control" id="accessKeyId" >
             </div>
-            <div class="form-group" >
+            <div class="form-group" style="visibility:hidden;height: 1px">
                 <label>Secret Access Key</label>
                 <input type="password" class="form-control" id="secretAccessKey">
             </div>
@@ -53,11 +52,11 @@
             </div>
             <div class="form-group" style="visibility:hidden;height: 1px">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="sendVideo" value="video" checked>
+                    <input class="form-check-input" type="checkbox" id="sendVideo" value="video" >
                     <label class="form-check-label">Send Video</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="sendAudio" value="audio" checked>
+                    <input class="form-check-input" type="checkbox" id="sendAudio" value="audio" >
                     <label class="form-check-label">Send Audio</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -114,10 +113,12 @@
             </div>
             <div class="row datachannel">
                 <div class="col">
+                    Write your message here:
                     <div class="form-group">
                       <textarea type="text" class="form-control local-message" placeholder="DataChannel Message"> </textarea>
                     </div>
                 </div>
+
                 <div class="col">
                     <div class="card bg-light mb-3">
                         <pre class="remote-message card-body text-monospace preserve-whitespace"></pre>
@@ -136,21 +137,23 @@
             <h2>Viewer</h2>
             <div class="row">
                 <div class="col">
-                    <h5>Return Channel</h5>
-                    <div class="video-container"><video class="local-view" autoplay playsinline controls muted /></div>
-                </div>
-                <div class="col">
                     <h5>From Master</h5>
                     <div class="video-container"><video class="remote-view" autoplay playsinline controls /></div>
+                </div>
+                <div class="col" style="visibility:hidden;height: 1px">
+                    <h5>Return Channel</h5>
+                    <div class="video-container"><video class="local-view" autoplay playsinline controls muted /></div>
                 </div>
             </div>
             <div class="row datachannel">
                 <div class="col">
+                    <h4>Type your message here:</h4>
                     <div class="form-group">
                       <textarea type="text" class="form-control local-message" placeholder="DataChannel Message"> </textarea>
                     </div>
                 </div>
                 <div class="col">
+                    <h4>Messages from Streamer:</h4>
                     <div class="card bg-light mb-3">
                         <pre class="remote-message card-body text-monospace preserve-whitespace"></pre>
                     </div>
@@ -173,7 +176,6 @@
 </div>
 
 <div id="test"></div>
-
 
 <script src="./kvs-webrtc.js"></script>
 <script src="./master.js"></script>
